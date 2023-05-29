@@ -7,8 +7,13 @@ const { productsRouter, ordersRouter } = require("./src/routes");
 
 const app = express();
 
+const corsOptions = {
+  origin: "https://tetianadoroshko.github.io",
+  optionsSuccessStatus: 200,
+};
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "API works" });
